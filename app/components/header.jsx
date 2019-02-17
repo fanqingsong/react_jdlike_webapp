@@ -1,10 +1,11 @@
 
 require("./header.css");
 require('../lib/swiper.min.css');
+
 let Swiper = require('../lib/swiper.min.js');
-let jsonp = require('../util/jsonp.js');
 
 import React from 'react';     
+import axios from 'axios';
 
 class HeaderComponent extends React.Component {
 		constructor(props){
@@ -16,24 +17,31 @@ class HeaderComponent extends React.Component {
 		}
 
 		componentDidMount() {
-			jsonp(this.props.source, "", "callback", (data) => {
-				console.log(this)
+			axios.get(this.props.source)
+			.then((response) => {
+				return response.data;
+			})
+			.then((data) => {
+				console.log(data)
 				if(data.status) {
-						this.setState({
-								imgUrls: data.data,
-							})
+					this.setState({
+							imgUrls: data.data,
+						})
 
-						new Swiper ('#header .swiper-container', {
-							loop: true,
-							pagination: '.swiper-pagination',
-							paginationClickable: true,
-							autoplay : 3000,
+					new Swiper ('#header .swiper-container', {
+						loop: true,
+						pagination: '.swiper-pagination',
+						paginationClickable: true,
+						autoplay : 3000,
 						autoplayDisableOnInteraction : false,		    
 					}) 
 				}else {
-					alert(data.msg);
+					console.log(data.msg);
 				}
-			}); 
+			})
+			.catch(() => {
+				console.log("fetch encounter error!");
+			});
 		}
 	
 		render() {

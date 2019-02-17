@@ -2,8 +2,8 @@
 require('./more.css');
 require('../lib/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
-let jsonp = require('../util/jsonp.js');
 import React from 'react'; 
+import axios from 'axios';
 
 class MoreComponent extends React.Component{
 	constructor(props){
@@ -17,7 +17,12 @@ class MoreComponent extends React.Component{
 	}
 
 	componentDidMount() {
-		jsonp(this.props.source, "", "callback", (data) => {
+		axios.get(this.props.source)
+		.then((response) => {
+			return response.data;
+		})
+		.then((data) => {
+			console.log(data)
 			if(data.status) {
 				this.setState({
 					more1: data.data.slice(0,3),
@@ -34,6 +39,9 @@ class MoreComponent extends React.Component{
 			}else {
 				alert(data.msg);
 			}
+		})
+		.catch(() => {
+			console.log("fetch encounter error!");
 		});
 	}
 

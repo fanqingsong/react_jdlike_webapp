@@ -1,7 +1,7 @@
 
 require('./spike.css');
-let jsonp = require('../util/jsonp.js');
 import React from 'react'; 
+import axios from 'axios';
 
 class SpikeComponent extends React.Component{
 	constructor(props){
@@ -45,25 +45,24 @@ class SpikeComponent extends React.Component{
 	}
 	
 	componentDidMount() {	
-		let getData = () => {
-			let promise = new Promise((resolve, reject) => {
-				jsonp(this.props.source, "", "callback", (data) => {
-					if(data.status) {
-						this.setState({
-							stores: data.data,
-							more: data.more,
-						});
-						resolve(data.times);
-					}else {
-						alert(data.msg);
-						reject("get data error!")
-					}
-				})
-			})
-			return promise;
-		}
+		axios.get(this.props.source)
+		.then((response) => {
+			return response.data;
+		})
+		.then((data) => {
+			console.log(data)
+			if(data.status) {
+				this.setState({
+					stores: data.data,
+					more: data.more,
+				});
 
-		getData().then((times) => {
+				return data.times;
+			}else {
+				console.log(data.msg);
+			}
+		})
+		.then((times) => {
 			times = +times;
 			let timer = window.setInterval(() => {
 				let {hour, minutes, second} = this.formatTime(times--);
@@ -77,10 +76,10 @@ class SpikeComponent extends React.Component{
 					second: second,
 				});
 			}, 1000);
-		}, (err) => {
-			alert(err);
-		});
-		
+		})
+		.catch(() => {
+			console.log("fetch encounter error!");
+		});		
 	}
 
 	render() {

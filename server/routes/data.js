@@ -111,8 +111,6 @@ readFileData().then(() => {
 
 
 exports.swiper = (req, res) => {
-	let reg = /\?callback=(.*)/;
-	let callback = reg.exec(req.url)[1];
 	const sendData = {
 		status: 0,
 		msg: "",
@@ -126,12 +124,11 @@ exports.swiper = (req, res) => {
 		sendData.msg = "error";
 	}
 	let json = JSON.stringify(sendData);
-  	res.send(callback + '(' + json + ')');
+
+  	res.send(json);
 };
 
 exports.otherapp = (req, res) => {
-	let reg = /\?callback=(.*)/;
-	let callback = reg.exec(req.url)[1];
 	const sendData = {
 		status: 0,
 		msg: "",
@@ -148,12 +145,10 @@ exports.otherapp = (req, res) => {
 	}
 
 	let json = JSON.stringify(sendData);
-  	res.send(callback + '(' + json + ')');
+	res.send(json);
 };
 
 exports.spike = (req, res) => {
-	let reg = /\?callback=(.*)/;
-	let callback = reg.exec(req.url)[1];
 	const sendData = {
 		status: 0,
 		msg: "",
@@ -173,12 +168,11 @@ exports.spike = (req, res) => {
 	}
 
 	let json = JSON.stringify(sendData);
-  	res.send(callback + '(' + json + ')');
+
+	res.send(json);
 };
 
 exports.more = (req, res) => {
-	let reg = /\?callback=(.*)/;
-	let callback = reg.exec(req.url)[1];
 	const sendData = {
 		status: 0,
 		msg: "",
@@ -194,12 +188,11 @@ exports.more = (req, res) => {
 	}
 
 	let json = JSON.stringify(sendData);
-  	res.send(callback + '(' + json + ')');
+
+	res.send(json);
 };
 
 exports.like = (req, res) => {
-	let reg = /\?callback=(.*)/;
-	let callback = reg.exec(req.url)[1];
 	const sendData = {
 		status: 0,
 		msg: "",
@@ -215,7 +208,8 @@ exports.like = (req, res) => {
 	}
 
 	let json = JSON.stringify(sendData);
-  	res.send(callback + '(' + json + ')');
+	  
+	res.send(json);
 };
 
 

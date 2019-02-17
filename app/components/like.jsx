@@ -1,7 +1,7 @@
 
 require('./like.css');
-let jsonp = require('../util/jsonp.js');
 import React from 'react'; 
+import axios from 'axios';
 
 class LikeComponent extends React.Component {
 	constructor(props){
@@ -13,16 +13,23 @@ class LikeComponent extends React.Component {
 	}
 
 	componentDidMount() {
-		jsonp(this.props.source, "", "callback", (data) => {
+		axios.get(this.props.source)
+		.then((response) => {
+			return response.data;
+		})
+		.then((data) => {
+			console.log(data)
 			if(data.status) {
 				this.setState({
 					stores: data.data,
 				});
 			}else {
-				alert(data.msg);
-				reject("get data error!")
+				console.log(data.msg);
 			}
 		})
+		.catch(() => {
+			console.log("fetch encounter error!");
+		});
 	}
 
 	render() {
