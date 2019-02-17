@@ -3,18 +3,20 @@ require('./spike.css');
 let jsonp = require('../util/jsonp.js');
 import React from 'react'; 
 
-let Spike = React.createClass({
-	getInitialState: function() {
-		return {
+class SpikeComponent extends React.Component{
+	constructor(props){
+		super(props);
+
+		this.state = {
 			hour: "00",
 			minutes: "00",
 			second: "00",
 			stores: [],
 			more: ""
 		}
-	},
+	}
 
-	formatTime: function(times=0) {
+	formatTime(times=0) {
 		times = +times;
 		let hour = 0,
 			minutes = 0,
@@ -40,20 +42,18 @@ let Spike = React.createClass({
 			minutes: minutes,
 			second: second,
 		}
-	},
+	}
 	
-	componentDidMount: function() {	
+	componentDidMount() {	
 		let getData = () => {
 			let promise = new Promise((resolve, reject) => {
 				jsonp(this.props.source, "", "callback", (data) => {
 					if(data.status) {
-						if(this.isMounted()) {
-							this.setState({
-								stores: data.data,
-								more: data.more,
-							});
-							resolve(data.times);
-						}
+						this.setState({
+							stores: data.data,
+							more: data.more,
+						});
+						resolve(data.times);
 					}else {
 						alert(data.msg);
 						reject("get data error!")
@@ -81,9 +81,9 @@ let Spike = React.createClass({
 			alert(err);
 		});
 		
-	},
+	}
 
-	render: function() {
+	render() {
 		let countId = 0;
 		return (
 			<div id="spike">
@@ -127,6 +127,6 @@ let Spike = React.createClass({
 			</div>
 		);
 	}
-})
+}
 
-module.exports = Spike;
+module.exports = SpikeComponent;

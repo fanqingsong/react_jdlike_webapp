@@ -5,40 +5,39 @@ let Swiper = require('../lib/swiper.min.js');
 let jsonp = require('../util/jsonp.js');
 import React from 'react'; 
 
-var More = React.createClass({
-	getInitialState: function() {
-        return {
+class MoreComponent extends React.Component{
+	constructor(props){
+		super(props);
+
+		this.state = {
         	more1: [],
         	more2: [],
         	more3: [],
-        };
- 	},
+		};
+	}
 
-	componentDidMount: function() {
+	componentDidMount() {
 		jsonp(this.props.source, "", "callback", (data) => {
 			if(data.status) {
-
-				if(this.isMounted()) {
-					this.setState({
-						more1: data.data.slice(0,3),
-						more2: data.data.slice(3,5),
-						more3: data.data.slice(5,7),
-					})
-				    new Swiper ('.more_bottom .swiper-container', {
-					    loop: true,
-					    pagination: '.swiper-pagination',
-					    paginationClickable: true,
-					    autoplay : 2000,
-						autoplayDisableOnInteraction : false,		    
-					}) 
-				}
+				this.setState({
+					more1: data.data.slice(0,3),
+					more2: data.data.slice(3,5),
+					more3: data.data.slice(5,7),
+				})
+				new Swiper ('.more_bottom .swiper-container', {
+					loop: true,
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					autoplay : 2000,
+					autoplayDisableOnInteraction : false,		    
+				}) 
 			}else {
 				alert(data.msg);
 			}
 		});
-	},
+	}
 
-	render: function() {
+	render() {
 
 		let countId = 0;
 		return (
@@ -84,6 +83,6 @@ var More = React.createClass({
 			</div>
 		);
 	}
-})
+}
 
-module.exports = More;
+module.exports = MoreComponent;

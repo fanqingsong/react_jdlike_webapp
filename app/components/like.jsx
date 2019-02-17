@@ -3,29 +3,29 @@ require('./like.css');
 let jsonp = require('../util/jsonp.js');
 import React from 'react'; 
 
-let Like = React.createClass({
-	getInitialState: function() {
-		return {
-			stores: [],
-		}
-	},
+class LikeComponent extends React.Component {
+	constructor(props){
+		super(props);
 
-	componentDidMount: function() {
+		this.state = {
+			stores: []
+		}	
+	}
+
+	componentDidMount() {
 		jsonp(this.props.source, "", "callback", (data) => {
 			if(data.status) {
-				if(this.isMounted()) {
-					this.setState({
-						stores: data.data,
-					});
-				}
+				this.setState({
+					stores: data.data,
+				});
 			}else {
 				alert(data.msg);
 				reject("get data error!")
 			}
 		})
-	},
+	}
 
-	render: function() {
+	render() {
 		let countId = 0;
 		return (
 			<div id="like">
@@ -53,6 +53,7 @@ let Like = React.createClass({
 			</div>
 		);
 	}
-})
+}
 
-module.exports = Like;
+module.exports = LikeComponent;
+
