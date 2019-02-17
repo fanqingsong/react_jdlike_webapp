@@ -1,13 +1,14 @@
-# React-Demo
 
-## 介绍
+# 介绍
 forked from Cathy0807/react
+在此工程的基础上做了一些优化，希望后面库的主人吸收
 
-### adding chages：
+## adding chages：
 * use React.component to replace obsoleted api React.CreateClass
 * use Restful api to replace jsonp api, introducing axios
 
 
+# React-Demo
 ### 基于Reactjs && Node 通讯的简单演示
 
 * Reactjs && ES6 && webpack构建移动端京东首页
