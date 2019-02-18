@@ -21,11 +21,11 @@ class AppComponent extends React.Component{
                 <br/>
                 <div>
                     <ul role="nav" className="navigation_menu">
-                        <li><Link to="/Header"><div>Header</div></Link></li>
-                        <li><Link to="/Otherapp"><div>Otherapp</div></Link></li>
-                        <li><Link to="/Spike"><div>Spike</div></Link></li>
-                        <li><Link to="/More"><div>More</div></Link></li>
-                        <li><Link to="/Like"><div>Like</div></Link></li>
+                        <li><Link   activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Header">Header</Link></li>
+                        <li><Link   activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Otherapp">Otherapp</Link></li>
+                        <li><Link   activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Spike">Spike</Link></li>
+                        <li><Link   activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/More">More</Link></li>
+                        <li><Link   activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Like">Like</Link></li>
                     </ul>
                 </div>
                 <div>

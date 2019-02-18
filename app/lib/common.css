@@ -45,10 +45,6 @@ textarea,
 select {
     outline: 0;
 }
-a {
-    text-decoration: none;
-    color: #099cd6;
-}
 
 p {
     margin: 0;
@@ -98,6 +94,5 @@ ul.navigation_menu > li{
     background: #587758;
     color: #333;
     text-align: center;
-    cursor: pointer;
     border: solid gray 1px;
 }
