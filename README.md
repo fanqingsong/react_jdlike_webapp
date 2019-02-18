@@ -49,7 +49,7 @@ forked from Cathy0807/react
 
 执行完`npm run dev`命令后，打开浏览器 `http://localhost:8080/`运行项目，后台服务端口为 `3000`
 
-## 后台接口（jsonp请求）
+## 后台接口（Restful请求）
 轮播图模块
 ```
 http://localhost:3000/data/swiper
