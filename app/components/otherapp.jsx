@@ -8,13 +8,15 @@ class OtherappComponent extends React.Component {
 	constructor(props){
 		super(props);
 
+		this.source = "http://localhost:3000/data/otherapp";
+
 		this.state = {
 			apps: [],
 		}
 	}
 
 	componentDidMount() {
-		axios.get(this.props.source)
+		axios.get(this.source)
 		.then((response) => {
 			return response.data;
 		})

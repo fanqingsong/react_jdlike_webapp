@@ -7,6 +7,8 @@ class SpikeComponent extends React.Component{
 	constructor(props){
 		super(props);
 
+		this.source = "http://localhost:3000/data/spike";
+
 		this.state = {
 			hour: "00",
 			minutes: "00",
@@ -45,7 +47,7 @@ class SpikeComponent extends React.Component{
 	}
 	
 	componentDidMount() {	
-		axios.get(this.props.source)
+		axios.get(this.source)
 		.then((response) => {
 			return response.data;
 		})

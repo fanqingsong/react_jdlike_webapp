@@ -11,13 +11,17 @@ class HeaderComponent extends React.Component {
 		constructor(props){
 				super(props);
 
+				this.source = "http://localhost:3000/data/swiper";
+
 				this.state = {
 						imgUrls: [],
 				};
 		}
 
 		componentDidMount() {
-			axios.get(this.props.source)
+			console.log(this.source)
+			
+			axios.get(this.source)
 			.then((response) => {
 				return response.data;
 			})

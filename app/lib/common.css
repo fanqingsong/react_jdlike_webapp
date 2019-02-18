@@ -93,3 +93,11 @@ ul, li,  dl, dt, dd {
 .pf {
     position: fixed;
 }
+
+ul.navigation_menu > li{
+    background: #587758;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    border: solid gray 1px;
+}

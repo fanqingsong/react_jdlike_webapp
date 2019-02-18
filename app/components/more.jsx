@@ -9,6 +9,8 @@ class MoreComponent extends React.Component{
 	constructor(props){
 		super(props);
 
+		this.source = "http://localhost:3000/data/more";
+
 		this.state = {
         	more1: [],
         	more2: [],
@@ -17,7 +19,7 @@ class MoreComponent extends React.Component{
 	}
 
 	componentDidMount() {
-		axios.get(this.props.source)
+		axios.get(this.source)
 		.then((response) => {
 			return response.data;
 		})

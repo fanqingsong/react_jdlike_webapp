@@ -1,11 +1,12 @@
 
 # 介绍
 forked from Cathy0807/react
-在此工程的基础上做了一些优化，希望后面库的主人吸收
+在此工程的基础上做了一些优化，仅供学习和参考。
 
 ## adding chages：
 * use React.component to replace obsoleted api React.CreateClass
 * use Restful api to replace jsonp api, introducing axios
+* use React-Router to turn it to Multipage project
 
 
 # React-Demo
