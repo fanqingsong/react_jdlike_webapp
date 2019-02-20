@@ -3,6 +3,26 @@ require('./spike.css');
 import React from 'react'; 
 import axios from 'axios';
 
+import { createStore } from 'redux';
+
+let defaultState = {
+	hour: "00",
+	minutes: "00",
+	second: "00",
+	stores: [],
+	more: ""
+};
+
+let reducer = (state = defaultState, action) => {
+	switch (action.type) {
+	  	case 'UPDATE_INFO_STORE':
+		case 'UPDATE_INFO_TIME':
+			return Object.assign({}, state, action.payload); 
+	  default:
+			return state;
+	}
+};
+
 class SpikeComponent extends React.Component{
 	constructor(props){
 		super(props);
@@ -16,6 +36,19 @@ class SpikeComponent extends React.Component{
 			stores: [],
 			more: ""
 		}
+
+		this.store = createStore(reducer);
+		this.store.subscribe(()=>{
+			console.log("enter store subsrible");
+			let storeState = this.store.getState();
+			this.setState({
+				hour: storeState.hour,
+				minutes: storeState.minutes,
+				second: storeState.second,
+				stores: storeState.stores,
+				more: storeState.more,
+			});
+		});
 	}
 
 	formatTime(times=0) {
@@ -54,10 +87,10 @@ class SpikeComponent extends React.Component{
 		.then((data) => {
 			console.log(data)
 			if(data.status) {
-				this.setState({
-					stores: data.data,
+				this.store.dispatch({ type: 'UPDATE_INFO_STORE', payload: {
+					stores:  data.data,
 					more: data.more,
-				});
+				} });
 
 				return data.times;
 			}else {
@@ -72,11 +105,12 @@ class SpikeComponent extends React.Component{
 					clearInterval(timer);
 					timer = null;
 				}
-				this.setState({
+
+				this.store.dispatch({ type: 'UPDATE_INFO_TIME', payload: {
 					hour: hour,
 					minutes: minutes,
 					second: second,
-				});
+				} });
 			}, 1000);
 		})
 		.catch(() => {

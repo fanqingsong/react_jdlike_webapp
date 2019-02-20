@@ -7,6 +7,7 @@ forked from Cathy0807/react
 * use React.component to replace obsoleted api React.CreateClass
 * use Restful api to replace jsonp api, introducing axios
 * use React-Router to turn it to Multipage project
+* use Redux to manage the data form restful api
 
 
 # React-Demo
