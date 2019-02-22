@@ -2,27 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
+import APPRouter from './app/router.js';
 
-import AppComponent from './app.jsx';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './app/reducers';
 
-import Header from './app/components/header.jsx'; 
-import Otherapp from './app/components/otherapp.jsx'; 
-import Spike from './app/components/spike.jsx'; 
-import More from './app/components/more.jsx'; 
-import Like from './app/components/like.jsx'; 
+const store = createStore(rootReducer)
 
 ReactDOM.render(
-	<Router history={hashHistory}>
-    	<Route path="/" component={AppComponent}>
-			<IndexRedirect to="/Header"/>
-			
-			<Route path='/Header' component={Header} />
-			<Route path='/Otherapp'  component={Otherapp} />
-			<Route path='/Spike'  component={Spike} />
-			<Route path='/More'  component={More} />
-			<Route path='/Like'  component={Like} />
-		</Route>
-  	</Router>, 
+	<Provider store={store}>
+		<APPRouter/>
+	</Provider>,
 	document.querySelector("#myApp")
 );

@@ -3,33 +3,11 @@ require('./like.css');
 import React from 'react'; 
 import axios from 'axios';
 
-
-import { createStore } from 'redux';
-
-let reducer = (state = [], action) => {
-	switch (action.type) {
-	  case 'UPDATE_IMAGE_URL':
-		return action.payload;
-	  default:
-		return state;
-	}
-}
-
 class LikeComponent extends React.Component {
 	constructor(props){
 		super(props);
 
 		this.source = "http://localhost:3000/data/more";
-
-		this.state = {
-			stores: []
-		}	
-
-		this.store = createStore(reducer);
-		this.store.subscribe(()=>{
-			console.log("enter store subsrible")
-			this.setState({stores: this.store.getState()});
-		});
 	}
 
 	componentDidMount() {
@@ -40,7 +18,7 @@ class LikeComponent extends React.Component {
 		.then((data) => {
 			console.log(data)
 			if(data.status) {
-				this.store.dispatch({ type: 'UPDATE_IMAGE_URL', payload: data.data });
+				this.props.updateImgs(data.data);
 			}else {
 				console.log(data.msg);
 			}
@@ -56,7 +34,7 @@ class LikeComponent extends React.Component {
 			<div id="like">
 				<p>猜你喜欢</p>
 				{
-					this.state.stores.map((item) => {
+					this.props.likeImgs.map((item) => {
 						return <div className="like_content" key={"like" + countId++}>
 									<div className="like_link">
 										<a href={ item.url }>

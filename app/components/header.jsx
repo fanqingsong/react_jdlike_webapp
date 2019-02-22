@@ -7,32 +7,11 @@ let Swiper = require('../lib/swiper.min.js');
 import React from 'react';     
 import axios from 'axios';
 
-import { createStore } from 'redux';
-
-let reducer = (state = [], action) => {
-	switch (action.type) {
-	  case 'UPDATE_IMAGE_URL':
-		return action.payload;
-	  default:
-		return state;
-	}
-}
-
 class HeaderComponent extends React.Component {
 		constructor(props){
 			super(props);
 
 			this.source = "http://localhost:3000/data/swiper";
-
-			this.state =  {
-				imgUrls: [],
-			};
-			
-			this.store = createStore(reducer);
-			this.store.subscribe(()=>{
-				console.log("enter store subsrible")
-				this.setState({imgUrls: this.store.getState()});
-			});
 		}
 
 		componentDidMount() {
@@ -45,7 +24,7 @@ class HeaderComponent extends React.Component {
 			.then((data) => {
 				console.log(data)
 				if(data.status) {
-					this.store.dispatch({ type: 'UPDATE_IMAGE_URL', payload: data.data });
+					this.props.updateImgs(data.data);
 
 					new Swiper ('#header .swiper-container', {
 						loop: true,
@@ -70,7 +49,7 @@ class HeaderComponent extends React.Component {
 					<div className="swiper-container">
 						<div className="swiper-wrapper">
 							{
-								this.state.imgUrls.map((url) => {
+								this.props.headerImgs.map((url) => {
 									return <div className="swiper-slide" key={"header" + countId++} >
 												<img className="img" src={url} />
 											 </div>

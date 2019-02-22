@@ -8,6 +8,7 @@ forked from Cathy0807/react
 * use Restful api to replace jsonp api, introducing axios
 * use React-Router to turn it to Multipage project
 * use Redux to manage the data form restful api
+* use React-Redux to manage the data form restful api
 
 
 # React-Demo

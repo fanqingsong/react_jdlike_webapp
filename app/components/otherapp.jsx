@@ -4,33 +4,11 @@ require('./otherapp.css');
 import React from 'react'; 
 import axios from 'axios';
 
-
-import { createStore } from 'redux';
-
-let reducer = (state = [], action) => {
-	switch (action.type) {
-	  case 'UPDATE_IMAGE_URL':
-		return action.payload;
-	  default:
-		return state;
-	}
-}
-
 class OtherappComponent extends React.Component {
 	constructor(props){
 		super(props);
 
 		this.source = "http://localhost:3000/data/otherapp";
-
-		this.state = {
-			apps: [],
-		}
-
-		this.store = createStore(reducer);
-		this.store.subscribe(()=>{
-			console.log("enter store subsrible")
-			this.setState({apps: this.store.getState()});
-		});
 	}
 
 	componentDidMount() {
@@ -41,7 +19,7 @@ class OtherappComponent extends React.Component {
 		.then((data) => {
 			console.log(data)
 			if(data.status) {
-				this.store.dispatch({ type: 'UPDATE_IMAGE_URL', payload: data.data });
+				this.props.updateImgs(data.data);
 			}else {
 				console.log(data.msg);
 			}
@@ -57,7 +35,7 @@ class OtherappComponent extends React.Component {
 		   <div className="oapp">
 			   <ul>
 				   {
-					   this.state.apps.map((app) => {
+					   this.props.otherappImgs.map((app) => {
 						   return <li key={ "otherapp" + countId++ }>
 									   <a href={ app.url }>
 										   <div className="app_icon">

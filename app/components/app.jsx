@@ -1,11 +1,11 @@
 
 
-require('./app/lib/common.css');
+require('../lib/common.css');
 import React from 'react';
 
 import { Link } from 'react-router';
 
-import Search from './app/components/search.jsx'; 
+import Search from './search.jsx'; 
 
 class AppComponent extends React.Component{
     constructor(props){

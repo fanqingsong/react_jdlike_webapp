@@ -5,50 +5,11 @@ import axios from 'axios';
 
 import { createStore } from 'redux';
 
-let defaultState = {
-	hour: "00",
-	minutes: "00",
-	second: "00",
-	stores: [],
-	more: ""
-};
-
-let reducer = (state = defaultState, action) => {
-	switch (action.type) {
-	  	case 'UPDATE_INFO_STORE':
-		case 'UPDATE_INFO_TIME':
-			return Object.assign({}, state, action.payload); 
-	  default:
-			return state;
-	}
-};
-
 class SpikeComponent extends React.Component{
 	constructor(props){
 		super(props);
 
 		this.source = "http://localhost:3000/data/spike";
-
-		this.state = {
-			hour: "00",
-			minutes: "00",
-			second: "00",
-			stores: [],
-			more: ""
-		}
-
-		this.store = createStore(reducer);
-		this.store.subscribe(()=>{
-			console.log("enter store subsrible");
-			let storeState = this.store.getState();
-			this.setState({
-				hour: storeState.hour,
-				minutes: storeState.minutes,
-				second: storeState.second,
-				stores: storeState.stores,
-				more: storeState.more,
-			});
-		});
 	}
 
 	formatTime(times=0) {
@@ -87,10 +48,10 @@ class SpikeComponent extends React.Component{
 		.then((data) => {
 			console.log(data)
 			if(data.status) {
-				this.store.dispatch({ type: 'UPDATE_INFO_STORE', payload: {
+				this.props.updateImgs({
 					stores:  data.data,
 					more: data.more,
-				} });
+				});
 
 				return data.times;
 			}else {
@@ -106,16 +67,22 @@ class SpikeComponent extends React.Component{
 					timer = null;
 				}
 
-				this.store.dispatch({ type: 'UPDATE_INFO_TIME', payload: {
+				this.props.updateImgs({
 					hour: hour,
 					minutes: minutes,
 					second: second,
-				} });
+				});
 			}, 1000);
+
+			this.timer = timer;
 		})
 		.catch(() => {
 			console.log("fetch encounter error!");
 		});		
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timer);
 	}
 
 	render() {
@@ -129,7 +96,7 @@ class SpikeComponent extends React.Component{
 						{
 							(() => {
 								return  <div>
-											<span>{this.state.hour}</span>:<span>{this.state.minutes}</span>:<span>{this.state.second}</span>
+											<span>{this.props.spikeImgs.hour}</span>:<span>{this.props.spikeImgs.minutes}</span>:<span>{this.props.spikeImgs.second}</span>
 										</div>
 										
 							})()
@@ -137,7 +104,7 @@ class SpikeComponent extends React.Component{
 					</div>
 					<div className="spike_more fr">
 						<i className="fr"></i>
-						<a href={this.state.more}>
+						<a href={this.props.spikeImgs.more}>
 							<span>更多秒杀</span>
 						</a>
 						
@@ -146,7 +113,7 @@ class SpikeComponent extends React.Component{
 				</div>
 				<ul className="spike_content">
 					{
-						this.state.stores.map((item) => {
+						this.props.spikeImgs.stores.map((item) => {
 							return <li key={"spike" + countId++}>
 										<a href={item.url}>
 											<div>
