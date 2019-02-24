@@ -5,41 +5,23 @@ require('../lib/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
 
 import React from 'react';     
-import axios from 'axios';
 
 class HeaderComponent extends React.Component {
 		constructor(props){
 			super(props);
-
-			this.source = "http://localhost:3000/data/swiper";
 		}
 
 		componentDidMount() {
-			console.log(this.source)
-			
-			axios.get(this.source)
-			.then((response) => {
-				return response.data;
+			this.props.updateImgs()
+			.then(() => {
+				new Swiper ('#header .swiper-container', {
+					loop: true,
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					autoplay : 3000,
+					autoplayDisableOnInteraction : false,		    
+				}) 
 			})
-			.then((data) => {
-				console.log(data)
-				if(data.status) {
-					this.props.updateImgs(data.data);
-
-					new Swiper ('#header .swiper-container', {
-						loop: true,
-						pagination: '.swiper-pagination',
-						paginationClickable: true,
-						autoplay : 3000,
-						autoplayDisableOnInteraction : false,		    
-					}) 
-				}else {
-					console.log(data.msg);
-				}
-			})
-			.catch(() => {
-				console.log("fetch encounter error!");
-			});
 		}
 	
 		render() {

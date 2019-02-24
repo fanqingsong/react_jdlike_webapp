@@ -2,14 +2,14 @@
 import { connect } from 'react-redux';
 import PageComponent from '../components/otherapp';
 
-import { otherappAction } from '../actions';
+import { otherappAsyncAction } from '../actions';
 
 const mapStateToProps = state => ({
 	otherappImgs: state.otherappImgs
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateImgs: imgs => dispatch( otherappAction(imgs) )
+  updateImgs: () => dispatch( otherappAsyncAction() )
 });
 
 module.exports = connect(

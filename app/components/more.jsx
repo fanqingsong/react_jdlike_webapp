@@ -8,38 +8,19 @@ import axios from 'axios';
 class MoreComponent extends React.Component{
 	constructor(props){
 		super(props);
-
-		this.source = "http://localhost:3000/data/more";
 	}
 
 	componentDidMount() {
-		axios.get(this.source)
-		.then((response) => {
-			return response.data;
+		this.props.updateImgs()
+		.then(() => {
+			new Swiper ('.more_bottom .swiper-container', {
+				loop: true,
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				autoplay : 2000,
+				autoplayDisableOnInteraction : false,		    
+			}) 
 		})
-		.then((data) => {
-			console.log(data)
-			if(data.status) {
-				this.props.updateImgs({
-					more1: data.data.slice(0,3),
-					more2: data.data.slice(3,5),
-					more3: data.data.slice(5,7),
-				});
-
-				new Swiper ('.more_bottom .swiper-container', {
-					loop: true,
-					pagination: '.swiper-pagination',
-					paginationClickable: true,
-					autoplay : 2000,
-					autoplayDisableOnInteraction : false,		    
-				}) 
-			}else {
-				alert(data.msg);
-			}
-		})
-		.catch(() => {
-			console.log("fetch encounter error!");
-		});
 	}
 
 	render() {

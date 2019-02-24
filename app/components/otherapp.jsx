@@ -7,26 +7,13 @@ import axios from 'axios';
 class OtherappComponent extends React.Component {
 	constructor(props){
 		super(props);
-
-		this.source = "http://localhost:3000/data/otherapp";
 	}
 
 	componentDidMount() {
-		axios.get(this.source)
-		.then((response) => {
-			return response.data;
+		this.props.updateImgs()
+		.then(() => {
+			console.log("data update ok!");
 		})
-		.then((data) => {
-			console.log(data)
-			if(data.status) {
-				this.props.updateImgs(data.data);
-			}else {
-				console.log(data.msg);
-			}
-		})
-		.catch(() => {
-			console.log("fetch encounter error!");
-		});
 	}
 	
     render() {

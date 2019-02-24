@@ -2,14 +2,14 @@
 import { connect } from 'react-redux';
 import PageComponent from '../components/more';
 
-import { moreAction } from '../actions';
+import { moreAsyncAction } from '../actions';
 
 const mapStateToProps = state => ({
 	moreImgs: state.moreImgs
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateImgs: imgs => dispatch( moreAction(imgs) )
+  updateImgs: () => dispatch( moreAsyncAction() )
 });
 
 module.exports = connect(

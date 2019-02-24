@@ -2,14 +2,14 @@
 import { connect } from 'react-redux';
 import PageComponent from '../components/spike';
 
-import { spikeAction } from '../actions';
+import { spikeAsyncAction } from '../actions';
 
 const mapStateToProps = state => ({
 	spikeImgs: state.spikeImgs
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateImgs: imgs => dispatch( spikeAction(imgs) )
+  updateImgs: () => dispatch( spikeAsyncAction() )
 });
 
 module.exports = connect(

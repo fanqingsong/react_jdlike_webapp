@@ -2,14 +2,14 @@
 import { connect } from 'react-redux';
 import PageComponent from '../components/header';
 
-import { headerAction } from '../actions';
+import { headerAsyncAction } from '../actions';
 
 const mapStateToProps = state => ({
 	headerImgs: state.headerImgs
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateImgs: imgs => dispatch( headerAction(imgs) )
+  updateImgs: () => dispatch( headerAsyncAction() )
 });
 
 module.exports = connect(

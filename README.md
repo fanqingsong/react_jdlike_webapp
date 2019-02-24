@@ -9,6 +9,7 @@ forked from Cathy0807/react
 * use React-Router to turn it to Multipage project
 * use Redux to manage the data form restful api
 * use React-Redux to manage the data form restful api
+* transfer restul request to action using redux-thunk
 
 
 # React-Demo

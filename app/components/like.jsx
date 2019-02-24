@@ -1,31 +1,14 @@
 
 require('./like.css');
 import React from 'react'; 
-import axios from 'axios';
 
 class LikeComponent extends React.Component {
 	constructor(props){
 		super(props);
-
-		this.source = "http://localhost:3000/data/more";
 	}
 
 	componentDidMount() {
-		axios.get(this.source)
-		.then((response) => {
-			return response.data;
-		})
-		.then((data) => {
-			console.log(data)
-			if(data.status) {
-				this.props.updateImgs(data.data);
-			}else {
-				console.log(data.msg);
-			}
-		})
-		.catch(() => {
-			console.log("fetch encounter error!");
-		});
+		this.props.updateImgs()
 	}
 
 	render() {
