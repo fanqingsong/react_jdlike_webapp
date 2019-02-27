@@ -10,7 +10,7 @@ forked from Cathy0807/react
 * use Redux to manage the data form restful api
 * use React-Redux to manage the data form restful api
 * transfer restul request to action using redux-thunk
-
+* beautify navigation tab bar!
 
 # React-Demo
 ### 基于Reactjs && Node 通讯的简单演示
