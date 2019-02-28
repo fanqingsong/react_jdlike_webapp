@@ -7,7 +7,7 @@ module.exports = {
 	entry: [
 		'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
 		'webpack/hot/only-dev-server',
-		'./index.jsx' // Your appʼs entry point
+		'./index.js' // Your appʼs entry point
 	],
 	//生成的sourcemap的方式
 	devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
@@ -16,7 +16,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
+		extensions: ['', '.js']
 	},
 	module: {
 		loaders: loaders

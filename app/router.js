@@ -2,13 +2,13 @@
 import React from 'react';
 import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 
-import AppComponent from './components/app.jsx';
+import AppComponent from './components/app.js';
 
-import Header from './container/header.jsx'; 
-import Otherapp from './container/otherapp.jsx'; 
-import Spike from './container/spike.jsx'; 
-import More from './container/more.jsx'; 
-import Like from './container/like.jsx'; 
+import Header from './container/header.js'; 
+import Otherapp from './container/otherapp.js'; 
+import Spike from './container/spike.js'; 
+import More from './container/more.js'; 
+import Like from './container/like.js'; 
 
 const APPRouter = () => {
     return (

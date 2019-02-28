@@ -13,7 +13,7 @@
 	height: 22px;
 	float: left;
 	margin-top: 8px;
-	background: url("../images/jd-sprites.png") -84px -109px no-repeat;
+	background: url("../static/jd-sprites.png") -84px -109px no-repeat;
 	background-size: 200px 200px;
 }
 
@@ -60,7 +60,7 @@
     width: 7px;
     height: 12px;
     margin: 2px 0 0 2px;
-    background: url("../images/jd-sprites.png") -186px -51px no-repeat;
+    background: url("../static/jd-sprites.png") -186px -51px no-repeat;
     background-size: 200px 200px;
 }
 

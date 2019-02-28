@@ -1,7 +1,7 @@
 
 require('./more.css');
-require('../lib/swiper.min.css');
-let Swiper = require('../lib/swiper.min.js');
+require('../static/swiper.min.css');
+let Swiper = require('../static/swiper.min.js');
 import React from 'react'; 
 import axios from 'axios';
 

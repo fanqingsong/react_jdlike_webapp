@@ -29,7 +29,7 @@
 	width: 56px;
     height: 21px;
     display: inline-block;
-	background: url('../images/jd-sprites.png') no-repeat;
+	background: url('../static/jd-sprites.png') no-repeat;
     background-size: 200px 200px;
     background-position: 0 -109px;
 }
@@ -51,7 +51,7 @@
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-	background: url('../images/jd-sprites.png') no-repeat;
+	background: url('../static/jd-sprites.png') no-repeat;
 	background-position: -60px -109px;
 	background-size: 200px 200px;
 }

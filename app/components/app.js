@@ -1,5 +1,5 @@
 
-require('../lib/common.css');
+require('../static/common.css');
 
 require("./app.css");
 
@@ -9,7 +9,7 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-import Search from './search.jsx'; 
+import Search from './search.js'; 
 
 class AppComponent extends React.Component{
     constructor(props){

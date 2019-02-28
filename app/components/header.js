@@ -1,8 +1,8 @@
 
 require("./header.css");
-require('../lib/swiper.min.css');
+require('../static/swiper.min.css');
 
-let Swiper = require('../lib/swiper.min.js');
+let Swiper = require('../static/swiper.min.js');
 
 import React from 'react';     
 

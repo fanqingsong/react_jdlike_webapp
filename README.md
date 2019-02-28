@@ -12,6 +12,8 @@ forked from Cathy0807/react
 * transfer restul request to action using redux-thunk
 * beautify navigation tab bar!
 
+![avatar](./demo.png)
+
 # React-Demo
 ### 基于Reactjs && Node 通讯的简单演示
 
