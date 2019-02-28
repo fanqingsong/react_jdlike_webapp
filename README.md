@@ -1,7 +1,7 @@
 
 # 介绍
 forked from Cathy0807/react
-在此工程的基础上做了一些优化，仅供学习和参考。
+在此工程的基础上做了一些优化。
 
 ## adding chages：
 * use React.component to replace obsoleted api React.CreateClass
