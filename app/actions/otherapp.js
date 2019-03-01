@@ -9,24 +9,10 @@ const otherappAction = payload => ({
     payload
 })
 
-export const otherappAsyncAction = () => {
-    return (dispatch) => {
-        let dataSource = "http://localhost:3000/data/otherapp";
-        
-        return axios.get(dataSource)
-		.then((response) => {
-			return response.data;
-		})
-		.then((data) => {
-			console.log(data)
-			if(data.status) {
-				dispatch( otherappAction(data.data) );
-			}else {
-				console.log(data.msg);
-			}
-		})
-		.catch(() => {
-			console.log("fetch encounter error!");
-		});
-    }
-}
+export const otherappAsyncAction = () => ({
+    isDataMiddleware: true,
+    dataPath: "data/otherapp",
+    dataTransform: data => data,
+    syncAction: otherappAction,
+})
+

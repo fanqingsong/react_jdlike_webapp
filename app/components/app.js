@@ -23,7 +23,7 @@ class AppComponent extends React.Component{
                 <br/>
                 <br/>
                 <br/>
-                <div>
+                <div className="nav-bar-container">
                     <ul className="nav-bar">
                         
                         <Link activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Header">
@@ -54,7 +54,7 @@ class AppComponent extends React.Component{
                     </ul>
 
                 </div>
-                <div>
+                <div className="content">
                     {this.props.children}
                 </div>
             </div>

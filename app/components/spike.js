@@ -11,15 +11,12 @@ class SpikeComponent extends React.Component{
 	}
 
 	componentDidMount() {	
-		this.timer;
-
-		this.props.updateImgs().then((timer) => {
-			this.timer = timer;
-		});
+		this.props.updateImgs()
+		this.props.startTimeRefresh();
 	}
 
 	componentWillUnmount() {
-		clearInterval(this.timer);
+		this.props.endTimeRefresh();
 	}
 
 	render() {

@@ -11,6 +11,7 @@ forked from Cathy0807/react
 * use React-Redux to manage the data form restful api
 * transfer restul request to action using redux-thunk
 * beautify navigation tab bar!
+* write a middleware for the similar logic of get data.
 
 ![avatar](./demo.png)
 
