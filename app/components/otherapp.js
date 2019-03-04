@@ -2,7 +2,7 @@
 require('./otherapp.css');
 
 import React from 'react'; 
-import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class OtherappComponent extends React.Component {
 	constructor(props){
@@ -38,5 +38,11 @@ class OtherappComponent extends React.Component {
 	   );
    }
 }
+
+
+OtherappComponent.propTypes = {
+	updateImgs: PropTypes.func.isRequired,
+	otherappImgs: PropTypes.array.isRequired,
+};
 
 module.exports = OtherappComponent;

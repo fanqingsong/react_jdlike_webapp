@@ -1,9 +1,7 @@
 
 require('./spike.css');
 import React from 'react'; 
-import axios from 'axios';
-
-import { createStore } from 'redux';
+import PropTypes from 'prop-types';
 
 class SpikeComponent extends React.Component{
 	constructor(props){
@@ -64,5 +62,13 @@ class SpikeComponent extends React.Component{
 		);
 	}
 }
+
+
+SpikeComponent.propTypes = {
+	updateImgs: PropTypes.func.isRequired,
+	startTimeRefresh: PropTypes.func.isRequired,
+	endTimeRefresh: PropTypes.func.isRequired,
+	spikeImgs: PropTypes.object.isRequired,
+};
 
 module.exports = SpikeComponent;

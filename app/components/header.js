@@ -5,6 +5,7 @@ require('../static/swiper.min.css');
 let Swiper = require('../static/swiper.min.js');
 
 import React from 'react';     
+import PropTypes from 'prop-types';
 
 class HeaderComponent extends React.Component {
 		constructor(props){
@@ -44,5 +45,10 @@ class HeaderComponent extends React.Component {
 				);
 		}
 }
+
+HeaderComponent.propTypes = {
+	updateImgs: PropTypes.func.isRequired,
+	headerImgs: PropTypes.array.isRequired,
+};
 
 module.exports = HeaderComponent;

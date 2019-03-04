@@ -12,6 +12,7 @@ forked from Cathy0807/react
 * transfer restul request to action using redux-thunk
 * beautify navigation tab bar!
 * write a middleware for the similar logic of get data.
+* add prop-type check.
 
 ![avatar](./demo.png)
 

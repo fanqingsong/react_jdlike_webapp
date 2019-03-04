@@ -2,8 +2,9 @@
 require('./more.css');
 require('../static/swiper.min.css');
 let Swiper = require('../static/swiper.min.js');
+
 import React from 'react'; 
-import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class MoreComponent extends React.Component{
 	constructor(props){
@@ -70,5 +71,11 @@ class MoreComponent extends React.Component{
 		);
 	}
 }
+
+
+MoreComponent.propTypes = {
+	updateImgs: PropTypes.func.isRequired,
+	moreImgs: PropTypes.object.isRequired,
+};
 
 module.exports = MoreComponent;

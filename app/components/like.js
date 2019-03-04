@@ -1,6 +1,7 @@
 
 require('./like.css');
 import React from 'react'; 
+import PropTypes from 'prop-types';
 
 class LikeComponent extends React.Component {
 	constructor(props){
@@ -40,6 +41,12 @@ class LikeComponent extends React.Component {
 		);
 	}
 }
+
+
+LikeComponent.propTypes = {
+	updateImgs: PropTypes.func.isRequired,
+	likeImgs: PropTypes.array.isRequired,
+};
 
 module.exports = LikeComponent;
 
