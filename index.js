@@ -12,9 +12,13 @@ import dataSourceMiddleware from "./app/middleware";
 
 const store = createStore(rootReducer, applyMiddleware(thunk, dataSourceMiddleware))
 
+import IntlWrapper from './app/Intl/IntlWrapper';
+
 ReactDOM.render(
 	<Provider store={store}>
-		<APPRouter/>
+		<IntlWrapper>
+			<APPRouter/>
+		</IntlWrapper>
 	</Provider>,
 	document.querySelector("#myApp")
 );

@@ -11,6 +11,8 @@ import { Link } from 'react-router';
 
 import Search from './search.js'; 
 
+import { FormattedMessage } from 'react-intl';
+
 class AppComponent extends React.Component{
     constructor(props){
         super(props);
@@ -28,27 +30,48 @@ class AppComponent extends React.Component{
                         
                         <Link activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Header">
                             <span className="icon iconfont">&#xe619;</span>
-                            <div>首页</div>
+                            <div>
+                            <FormattedMessage 
+                            　　id="home"
+                            />
+                            </div>
                         </Link>
 
                         <Link activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Otherapp">
                             <span className="icon iconfont">&#xe699;</span>
-                            <div>应用</div>
+                            <div>
+                                <FormattedMessage 
+                                　　id="application"
+                                />
+                            </div>
                         </Link>
 
                         <Link activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Spike">
                             <span className="icon iconfont">&#xe60e;</span>
-                            <div>秒杀</div>
+                            <div>
+                                <FormattedMessage 
+                                    　　id="spike"
+                                    />
+                            </div>
                         </Link>
                         
                         <Link activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/More">
                             <span className="icon iconfont">&#xe738;</span>
-                            <div>更多</div>
+                            <div>
+                                <FormattedMessage 
+                                        　　id="more"
+                                        />
+
+                            </div>
                         </Link>
                         
                         <Link activeStyle={{     fontWeight: 'bold',     color: 'red'    }} to="/Like">
                             <span className="icon iconfont">&#xe687;</span>
-                            <div>喜欢</div>
+                            <div>
+                            <FormattedMessage 
+                                        　　id="like"
+                                        />
+                            </div>
                         </Link>
                         
                     </ul>
