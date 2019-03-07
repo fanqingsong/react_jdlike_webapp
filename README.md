@@ -13,6 +13,7 @@ forked from Cathy0807/react
 * beautify navigation tab bar!
 * write a middleware for the similar logic of get data.
 * add prop-type check.
+* add react-intl for internationalization.
 
 ![avatar](./demo.png)
 
