@@ -2,7 +2,7 @@ module.exports = [
 	{
 		test: /\.jsx?$/,
 		exclude: /(node_modules|bower_components)/,
-		loaders: ['react-hot', 'babel'],
+		loaders: ['react-hot-loader', 'babel-loader'],
 	},
 
 	{
@@ -11,15 +11,15 @@ module.exports = [
 	},
 	{
 		test: /\.((ttf|eot|woff|svg)(\?t=[0-9]*))|(ttf|eot)$/,
-		loader: 'url?limit=1&name=fonts/[hash:8].[name].[ext]'
+		loader: 'url-loader?limit=1&name=fonts/[hash:8].[name].[ext]'
 	},
 	{
 		test: /\.(woff|woff2)$/,
-		loader: "url?prefix=font/&limit=5000"
+		loader: "url-loader?prefix=font/&limit=5000"
 	},
 	{
 		test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-		loader: "url?limit=10000&mimetype=image/svg+xml"
+		loader: "url-loader?limit=10000&mimetype=image/svg+xml"
 	},
 	{
 		test: /\.gif/,
