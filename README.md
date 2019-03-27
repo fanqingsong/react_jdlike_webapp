@@ -14,6 +14,7 @@ forked from Cathy0807/react
 * write a middleware for the similar logic of get data.
 * add prop-type check for component robust.
 * add react-intl for internationalization.
+* ugrade base by create-react-app
 
 ![avatar](./demo.png)
 
@@ -55,4 +56,4 @@ forked from Cathy0807/react
 > $ npm run build
 ```
 
-执行完`npm run dev`命令后，打开浏览器 `http://localhost:8080/`运行项目
+执行完`npm run dev`命令后，打开浏览器 `http://localhost:3000/`运行项目

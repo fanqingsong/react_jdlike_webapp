@@ -40,7 +40,7 @@ let getFileName = (path, fileClass) => {
 	            reject("read fileName err!")
 	        } else {  
 	        	files = files.map((file) => {
-	        		return "http://localhost:3000/images/" + fileClass + "/" + file;
+	        		return "http://localhost:8000/images/" + fileClass + "/" + file;
 	        	});
 	        	resolve(files);
 	        }         
