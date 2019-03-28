@@ -24,15 +24,9 @@ forked from Cathy0807/react
 * Reactjs && ES6 && webpack构建移动端京东首页
 * 基于文件系统的Node.js服务端
 
-## 安装与运行程序
+## 运行程序
 
-克隆项目
-
-```
-> $ git clone https://github.com/CanFoo/react.git
-```
-
-分别进入react目录和server目录下安装依赖包
+分别进入根目录和server目录下安装依赖包
 
 ```
 > $ npm install
@@ -41,13 +35,13 @@ forked from Cathy0807/react
 在server目录下启动后台服务
 
 ```
-> $ npm run start
+> $ npm start
 ```
 
-在react目录下启动webpack服务
+在根目录下运行， 打开浏览器 `http://localhost:3000/`
 
 ```
-> $ npm run dev
+> $ npm start
 ```
 
 发布项目文件命令
@@ -55,5 +49,3 @@ forked from Cathy0807/react
 ```
 > $ npm run build
 ```
-
-执行完`npm run dev`命令后，打开浏览器 `http://localhost:3000/`运行项目
