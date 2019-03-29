@@ -1,7 +1,7 @@
 
 # 介绍
-forked from Cathy0807/react
-在此工程的基础上做了一些优化。
+在此工程（Cathy0807/react）的基础上做了一些功能尝试。
+整个功能做得是JD app的模拟。
 
 ## adding chages：
 * use React.component to replace obsoleted api React.CreateClass
@@ -18,11 +18,6 @@ forked from Cathy0807/react
 
 ![avatar](./demo.png)
 
-# React-Demo
-### 基于Reactjs && Node 通讯的简单演示
-
-* Reactjs && ES6 && webpack构建移动端京东首页
-* 基于文件系统的Node.js服务端
 
 ## 运行程序
 
