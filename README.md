@@ -1,7 +1,7 @@
 
-# 介绍
-在此工程（Cathy0807/react）的基础上做了一些功能尝试。
-整个功能做得是JD app的模拟。
+# introduction
+The preject is based on copy of（Cathy0807/react）, then I add some new advanced react technology stack. 
+It is a mock up of JD app. If you are basic learning, you can learning from this project, enjoy.
 
 ## adding chages：
 * use React.component to replace obsoleted api React.CreateClass
@@ -16,30 +16,31 @@
 * add react-intl for internationalization.
 * ugrade base by create-react-app
 
+# demo
 ![avatar](./demo.png)
 
 
-## 运行程序
+# install and run
 
-分别进入根目录和server目录下安装依赖包
+enter root directory and server directory respectively, then run
 
 ```
 > $ npm install
 ```
 
-在server目录下启动后台服务
+run backend service, and run the below command
 
 ```
 > $ npm start
 ```
 
-在根目录下运行， 打开浏览器 `http://localhost:3000/`
+In the root directory, run the below command, then open browser, access the URL `http://localhost:3000/`
 
 ```
 > $ npm start
 ```
 
-发布项目文件命令
+publish the project files
 
 ```
 > $ npm run build
