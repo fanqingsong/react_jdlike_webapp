@@ -3,7 +3,7 @@
 The preject is based on copy of（Cathy0807/react）, then I add some new advanced react technology stack. 
 It is a mock up of JD app. If you are basic learning, you can learning from this project, enjoy.
 
-## adding chages：
+## adding changes：
 * use React.component to replace obsoleted api React.CreateClass
 * use Restful api to replace jsonp api, introducing axios
 * use React-Router to turn it to Multipage project
