@@ -14,7 +14,7 @@ It is a mock up of JD app. If you are basic learning, you can learning from this
 * write a middleware for the similar logic of get data.
 * add prop-type check for component robust.
 * add react-intl for internationalization.
-* ugrade base by create-react-app
+* upgrade base by create-react-app
 
 # demo
 ![avatar](./demo.png)
