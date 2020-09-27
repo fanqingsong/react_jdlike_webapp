@@ -32,7 +32,7 @@ enter root directory and server directory respectively, then run
 
 # Build
 
-enter root directory and server directory respectively, then run
+enter frontend directory and run
 
 ```
 > $ npm run build
