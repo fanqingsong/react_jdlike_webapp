@@ -32,7 +32,7 @@ enter root directory and server directory respectively, then run
 
 # Build
 
-enter frontend directory and run
+enter root directory and run
 
 ```
 > $ npm run build
@@ -41,7 +41,7 @@ enter frontend directory and run
 # Run
 
 ## Backend
-run backend service, and run the below command
+enter server directory and run
 
 ```
 > $ npm start
