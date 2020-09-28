@@ -24,33 +24,28 @@
 
 # Install 
 
-enter root directory and server directory respectively, then run
-
 ```
-> $ npm install
+./bin/install.sh
 ```
 
 # Build
 
-enter root directory and run
-
 ```
-> $ npm run build
+./bin/build.sh
 ```
 
 # Run
 
 ## Backend
-enter server directory and run
 
 ```
-> $ npm start
+./bin/start_backend.sh
 ```
 
 ## Frontend
 
-In the root directory, run the below command, then open browser, access the URL `http://localhost:3000/`
+open browser, access the URL `http://localhost:3000/`
 
 ```
-> $ npm start
+./bin/start_frontend.sh
 ```
